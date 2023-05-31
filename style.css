@@ -6,9 +6,40 @@ body {
   font-family: "Playfair", serif;
   color: white;
 }
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+}
 h1 {
   text-align: center;
   font-weight: bold;
+}
+#addBook {
+  justify-self: start;
+  background-color: brown;
+  height: 40px;
+}
+.addBook-form {
+  justify-self: center;
+  grid-column: 1/3;
+  display: grid;
+  gap: 20px;
+  justify-items: end;
+}
+input {
+  color: black;
+  font-size: large;
+}
+.hidden {
+  display: none;
+}
+.submit-form {
+  justify-self: center;
+  background-color: brown;
+  height: 25px;
+  margin-left: 77px;
 }
 .book-display {
   display: grid;
@@ -17,6 +48,7 @@ h1 {
   border: 1px red solid;
   justify-content: space-evenly;
 }
+
 .book {
   display: grid;
   height: 600px;

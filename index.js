@@ -37,3 +37,11 @@ function displayBooks() {
     booksDisplay.appendChild(book);
   });
 }
+
+const btn = document.querySelector("#addBook");
+const form = document.querySelector(".addBook-form");
+function displayForm() {
+  form.classList.toggle("addBook-form");
+  form.classList.toggle("hidden");
+}
+btn.addEventListener("click", displayForm);
