@@ -16,19 +16,21 @@
   <body>
     <header>
       <h1>LIBRARY</h1>
+      <button id="addBook">NEW BOOK</button>
+      <form action="" method="get" class="addBook-form">
+        <div>
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" />
+          <label for="author">Author</label>
+          <input type="text" id="author" name="author" />
+          <label for="pages">pages</label>
+          <input type="text" id="pages" name="pages" />
+          <label for="read">Have you read it ?</label>
+          <input type="checkbox" id="read" name="read" />
+        </div>
+      </form>
     </header>
-    <main class="book-display">
-      <div class="book">
-        <div class="title">LORD OF THE RINGS</div>
-        <div .class="author">JRR TOLKIEN</div>
-        <div class="pages">PAGES: 256</div>
-        <div class="read">READ - TRUE</div>
-      </div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-      <div class="book"></div>
-    </main>
+    <main class="book-display"></main>
     <script src="index.js"></script>
   </body>
 </html>
