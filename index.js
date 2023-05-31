@@ -25,7 +25,15 @@ function addBookToLibrary(book) {
     myLibrary.push(book);
   }
 }
-
+const booksDisplay = document.querySelector(".book-display");
 function displayBooks() {
-  myLibrary.forEach((element) => {});
+  myLibrary.forEach((item) => {
+    const book = document.createElement("div");
+    book.classList.add("book");
+    book.innerHTML = `<div class="title">${item.title}</div>
+    <div class="author">${item.author}</div>
+    <div class="pages">PAGES: ${item.pages}</div>
+    <div class="read">READ - ${item.read}</div>`;
+    booksDisplay.appendChild(book);
+  });
 }
