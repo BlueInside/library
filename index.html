@@ -17,7 +17,7 @@
     <header>
       <h1>LIBRARY</h1>
       <button id="addBook">NEW BOOK</button>
-      <form action="" method="get" class="addBook-form">
+      <form action="" id="bookForm" method="get" class="hidden">
         <div>
           <label for="title">Title</label>
           <input type="text" id="title" name="title" />
@@ -32,12 +32,20 @@
         </div>
         <div>
           <label for="read">Have you read it ?</label>
-          <input type="checkbox" id="read" name="read" />
+          <input type="checkbox" id="read" name="read" value="true" />
         </div>
         <button class="submit-form">Submit</button>
       </form>
     </header>
-    <main class="book-display"></main>
+    <main class="book-display">
+      <div class="book">
+        <div class="title">${item.title}</div>
+        <div class="author">${item.author}</div>
+        <div class="pages">PAGES: ${item.pages}</div>
+        <div class="read">READ - ${item.read}</div>
+        <button class="removeBook">Remove me</button>
+      </div>
+    </main>
     <script src="index.js"></script>
   </body>
 </html>

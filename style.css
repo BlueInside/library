@@ -60,3 +60,6 @@ input {
   align-items: baseline;
   justify-items: center;
 }
+button {
+  background-color: brown;
+}
