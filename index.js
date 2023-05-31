@@ -1,10 +1,9 @@
 const myLibrary = [];
 
-function Book(title, author, pages, read) {
+function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
-  this.read = read;
 }
 Book.prototype.read = false;
 
@@ -24,12 +23,15 @@ function displayBooks() {
     book.innerHTML = `<div class="title">${item.title}</div>
     <div class="author">${item.author}</div>
     <div class="pages">PAGES: ${item.pages}</div>
-    <button data-index="${index}" class="read">READ - ${item.read}</button>
+    <button data-index="${index}" class="read ${item.read ? "green" : "red"}">${
+      item.read ? "Yes you have read this book" : "Nope, not read yet"
+    }</button>
     <button data-index="${index}" class="removeBook">Remove me</button>`;
     booksDisplay.appendChild(book);
     index++;
   });
   addIndexToButtons();
+  wireReadBtns();
 }
 
 const btn = document.querySelector("#addBook");
@@ -50,7 +52,10 @@ function submitForm(e) {
   let author = document.querySelector("#author").value;
   let pages = document.querySelector("#pages").value;
   let read = document.querySelector("#read").checked;
-  const b = new Book(title, author, pages, read);
+  const b = new Book(title, author, pages);
+  if (read) {
+    b.read = true;
+  } else b.read = false;
   addBookToLibrary(b);
   displayBooks();
   showHideForm();
@@ -74,13 +79,11 @@ function wireReadBtns() {
     button.addEventListener("click", (e) => {
       const bookIndex = e.target.getAttribute("data-index");
       const book = myLibrary[bookIndex];
+      if (book.read) {
+        book.read = false;
+      } else book.read = true;
       console.log(book.read);
+      displayBooks();
     });
   });
 }
-wireReadBtns();
-// TOGGLE BOOK READ
-// when we click on button buttons with if book was read
-// --add events listeners to the
-// we want to change it's prototype read so it switches between true and false
-// when true or false it changes color etc
