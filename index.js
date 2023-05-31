@@ -1,17 +1,4 @@
-const myLibrary = [
-  {
-    title: "Lord of ice garden",
-    author: "Jaroslaw grzedowicz",
-    pages: "256",
-    read: true,
-  },
-  {
-    title: "Lord of the rings",
-    author: "JRR Tolkien",
-    pages: "666",
-    read: false,
-  },
-];
+const myLibrary = [];
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -19,6 +6,7 @@ function Book(title, author, pages, read) {
   this.pages = pages;
   this.read = read;
 }
+Book.prototype.read = false;
 
 function addBookToLibrary(book) {
   if (book instanceof Book) {
@@ -36,7 +24,7 @@ function displayBooks() {
     book.innerHTML = `<div class="title">${item.title}</div>
     <div class="author">${item.author}</div>
     <div class="pages">PAGES: ${item.pages}</div>
-    <div class="read">READ - ${item.read}</div>
+    <button data-index="${index}" class="read">READ - ${item.read}</button>
     <button data-index="${index}" class="removeBook">Remove me</button>`;
     booksDisplay.appendChild(book);
     index++;
@@ -80,11 +68,19 @@ function removeBookFromLibrary(removeIndex) {
   myLibrary.splice(removeIndex, 1);
   displayBooks();
 }
-//REMOVE BOOKS
-// when user clicks on button
-//-- Add event listeners to all buttons
-// remove me books should be removed
-// use data attribute on buttons to remove right element from
-// array ? use splice
-// from the array and display refreshed
-// return new array
+function wireReadBtns() {
+  let readBtns = document.querySelectorAll(".read");
+  readBtns.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const bookIndex = e.target.getAttribute("data-index");
+      const book = myLibrary[bookIndex];
+      console.log(book.read);
+    });
+  });
+}
+wireReadBtns();
+// TOGGLE BOOK READ
+// when we click on button buttons with if book was read
+// --add events listeners to the
+// we want to change it's prototype read so it switches between true and false
+// when true or false it changes color etc
