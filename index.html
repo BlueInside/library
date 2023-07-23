@@ -17,18 +17,35 @@
     <header>
       <h1>LIBRARY</h1>
       <button id="addBook">NEW BOOK</button>
-      <form action="" id="bookForm" method="get" class="hidden">
+      <form action="" id="bookForm" method="get" class="hidden" novalidate>
         <div>
-          <label for="title">Title</label>
-          <input type="text" id="title" name="title" required />
+          <label for="title">Title*</label>
+          <input type="text" id="title" name="title" required maxlength="100" />
+          <span class="error"></span>
         </div>
         <div>
-          <label for="author">Author</label>
-          <input type="text" id="author" name="author" required />
+          <label for="author">Author*</label>
+          <input
+            type="text"
+            id="author"
+            name="author"
+            required
+            maxlength="50"
+          />
+          <span class="error"></span>
         </div>
         <div>
-          <label for="pages">pages</label>
-          <input type="number" id="pages" name="pages" required />
+          <label for="pages">Pages*</label>
+          <input
+            type="number"
+            id="pages"
+            name="pages"
+            required
+            min="1"
+            maxlength="10000"
+            step="1"
+          />
+          <span class="error"></span>
         </div>
         <div>
           <label for="read">Have you read it ?</label>
@@ -39,5 +56,6 @@
     </header>
     <main class="book-display"></main>
     <script src="index.js"></script>
+    <script src="validate.js"></script>
   </body>
 </html>

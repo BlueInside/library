@@ -69,10 +69,51 @@ button {
   background-color: red;
 }
 
+.error.active {
+  background-color: red;
+}
+input {
+  border: 2px solid #ccc;
+}
 input:invalid {
-  border: 2px dashed red;
+  border-color: red;
+  transition: border-color 0.5s ease-in;
+}
+input:focus:invalid {
+  outline: none;
+}
+input:valid {
+  border-color: green;
+  transition: border-color 0.5s ease-in;
+}
+input:focus:valid {
+  outline: none;
+}
+.error {
+  display: block;
+  text-align: center;
 }
 
-input:valid {
-  border: 2px solid black;
+/* here */
+/* Style the parent container */
+
+/* Style the label */
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+/* Style the input field */
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the error message */
+.error {
+  display: block;
+  color: #f00;
+  font-size: 21px;
 }
